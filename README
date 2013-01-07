@@ -1,0 +1,24 @@
+Test assigment.
+
+A simple crawler which:
+ - fetches the content for a given start URL
+ - extracts the links from the content
+ - goes on to crawl the extracted links (back to step 1)
+ - the crawler should stop after 1000 found URLs
+ 
+Usage:
+java com.visualmeta.crawler.Crawler url [threadsNumber urlsLimit]
+where
+	url - start URL,
+	threadsNumber - number of threads (optional, default value is doubled number of processors available to the JVM on the machine),
+	urlsLimit - number of URLs crawler should stop after (optional, default value is 1000).
+
+
+Sample usage:
+	java com.visualmeta.crawler.Crawler http://www.visual-meta.com 20
+or 
+	java com.visualmeta.crawler.Crawler http://www.visual-meta.com 20 1000
+	
+Logging level can be configured via java.util.logging.config.file parameter, e.g.:
+
+java -Djava.util.logging.config.file=logging.properties com.visualmeta.crawler.Crawler http://www.visual-meta.com 20
